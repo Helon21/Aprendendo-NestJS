@@ -17,5 +17,15 @@ datasource db {
 model People {
   id String @id
   name String
-  function String
+  lastName String
+  email String @unique
+  password String
+  drawnNumbers DrawnNumbers[]
+}
+
+model DrawnNumbers {
+  id String @id
+  numbers Int[]
+  person People @relation(fields: [personId], references: [id])
+  personId String
 }

@@ -8,7 +8,18 @@ export class CreatePeopleDto {
     name: string;
 
     @IsNotEmpty({
-        message: 'The people function should not be empty.'
+        message: 'The lastName should not be empty.'
     })
-    function: string;
+    lastName: string;
+
+    @IsNotEmpty({
+        message: 'The email should not be empty.'
+    })
+    email: string;
+
+    @IsNotEmpty()
+    @Length(8, 200, {
+        message: 'Your password should be between $constraint1 and $constraint2.'
+    })
+    password: string;
 }
